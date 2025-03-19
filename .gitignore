@@ -1,0 +1,6 @@
+# Ne pas suivre les modules installés
+node_modules/
+
+
+# Ignorer les fichiers d'environnement sensibles
+.env
