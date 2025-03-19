@@ -4,7 +4,7 @@ const router = express.Router();
 const cors = require("cors");
 const axios = require("axios");
 const app = express();
-const PORT = process.env.PORT;
+//const PORT = process.env.PORT;
 const APIKEY = "OF5qaR0iaX3hYOtz";
 
 app.use(express.json());
@@ -64,6 +64,6 @@ app.all("*", (req, res) => {
   res.status(404).json({ message: "This route does not exist" });
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server started 🚀");
 });
