@@ -131,7 +131,7 @@ app.get("/comic/:id", async (req, res) => {
 });
 
 // detail d'un comic
-app.get("/character/:characterId", async (req, res) => {
+app.get("/character/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
