@@ -130,6 +130,27 @@ app.get("/comic/:id", async (req, res) => {
   }
 });
 
+// detail d'un comic
+app.get("/character/:characterId", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const response = await axios.get(
+      `https://lereacteur-marvel-api.herokuapp.com/character/${id}?apiKey=${APIKEY}`
+    );
+
+    return res.json(response.data);
+  } catch (error) {
+    if (error.message) {
+      console.error("Erreur lors de la requête :", error);
+      return res.status(500).json({ message: error.message });
+    } else if (error.response) {
+      console.error("Erreur lors de la requête :", error);
+      return res.status(500).json({ message: error.response });
+    }
+  }
+});
+
 app.all("*", (req, res) => {
   return res.status(404).json({ message: "This route does not exist" });
 });
