@@ -24,14 +24,15 @@ app.get("/comics", async (req, res) => {
     }
     filters += "&limit=" + limit;
 
-    if (req.query.name) {
-      filters += "&name=" + req.query.name;
+    if (req.query.title) {
+      filters += "&title=" + req.query.title;
     }
 
     if (req.query.page - 1) {
       const skip = (req.query.page - 1) * limit;
       filters += "&skip=" + { skip };
     }
+
     // on recup les data de l'API
     const response = await axios.get(
       `https://lereacteur-marvel-api.herokuapp.com/comics/?apiKey=${APIKEY}${filters}`
